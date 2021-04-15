@@ -18,6 +18,6 @@ jobs:
       - name: Run buildx
         run: |
           docker buildx bake \
-            --set app.cache-to=type=registry,ref=hcr.io/${{ github.repository_owner }}/dummy:latest/app:latest \
+            --set app.cache-to=type=registry,ref=hcr.io/${{ github.repository_owner }}/dummy:latest \
             --push
     

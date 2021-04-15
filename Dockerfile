@@ -1,3 +1,2 @@
-FROM python:3.8-latest
-
+FROM python:3.8
 RUN pip install black pytest

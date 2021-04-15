@@ -1,7 +1,7 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -9,5 +9,15 @@ jobs:
         run: |
           sudo curl -Lo /usr/bin/kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64
           kind create cluster
-      
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🧪 - Testing the software
+        run: echo "It worked"
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 👕 - Linting the software
+        run: echo "It worked"
+    
         

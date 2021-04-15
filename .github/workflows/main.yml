@@ -28,4 +28,8 @@ jobs:
         run: |
           mkdir output
           echo '{"a": true}' > output/dump.json
-        
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dump.json
+          path: output/dump.json
+

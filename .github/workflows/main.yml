@@ -13,7 +13,7 @@ jobs:
       - name: 🧪 - Testing the software
         run: kind get clusters
       - name: dummy
-        run: ls /usr/bin
+        run: which kind
   Lint:
     needs: [Setup]
     runs-on: ubuntu-latest

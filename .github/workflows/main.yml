@@ -1,0 +1,13 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: 📦 - Setting up K8s in Docker
+        run: |
+          curl -Lo ./usr/bin/kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64
+          kind create cluster
+      
+        

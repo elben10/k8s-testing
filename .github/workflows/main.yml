@@ -1,19 +1,13 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Build:
+  Setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Dummy
-        run: ls /usr/bin
-      - uses: engineerd/setup-kind@v0.5.0
-      - name: 📦 - Setting up K8s in Docker
-        run: kind get clusters
-      - name: Dummy
-        run: ls /usr/bin
+      - run: |
+          sudo curl -Lo /usr/bin/kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64
   Test:
-    needs: [Build]
+    needs: [Setup]
     runs-on: ubuntu-latest
     steps:
       - name: 🧪 - Testing the software
@@ -21,7 +15,7 @@ jobs:
       - name: dummy
         run: ls /usr/bin
   Lint:
-    needs: [Build]
+    needs: [Setup]
     runs-on: ubuntu-latest
     steps:
       - name: 👕 - Linting the software

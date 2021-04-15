@@ -5,5 +5,5 @@ services:
       context: .
       dockerfile: ./Dockerfile
       cache_from:
-        - ghcr.io/elben10/dummy:latest
+        - ghcr.io/${GITHUB_REPOSITORY_OWNER?VARIABLE NOT SET}/dummy:latest
         

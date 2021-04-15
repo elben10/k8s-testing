@@ -9,6 +9,7 @@ jobs:
         run: |
           sudo curl -Lo /usr/bin/kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64
           kind create cluster
+          kind get clusters
   Test:
     needs: [Build]
     runs-on: ubuntu-latest

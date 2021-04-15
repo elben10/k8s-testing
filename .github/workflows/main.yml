@@ -20,5 +20,12 @@ jobs:
     steps:
       - name: 👕 - Linting the software
         run: echo "It worked"
-    
+  Artifact:
+    needs: [Test, Lint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🏺 - Dumb artifacts
+        run: |
+          mkdir output
+          echo '{"a": true}' > output/dump.json
         

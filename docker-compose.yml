@@ -4,7 +4,5 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-      cache_from:
-        - ghcr.io/${GITHUB_REPOSITORY_OWNER?VARIABLE NOT SET}/dummy:latest
     image: ghcr.io/${GITHUB_REPOSITORY_OWNER?VARIABLE NOT SET}/dummy:latest
         

@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "sudo curl -Lo /usr/bin/kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64"
+          ls /usr/local/bin
   Test:
     needs: [Setup]
     runs-on: ubuntu-latest

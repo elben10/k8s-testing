@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: 📦 - Setting up K8s in Docker
         run: |
-          curl -Lo ./usr/bin/kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64
+          curl -Lo /usr/bin/kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64
           kind create cluster
       
         

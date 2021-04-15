@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🧪 - Testing the software
-        run: echo "It worked"
+        run: kind get clusters
   Lint:
     needs: [Build]
     runs-on: ubuntu-latest

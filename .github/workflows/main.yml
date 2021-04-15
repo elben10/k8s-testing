@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: engineerd/setup-kind@v0.5.0
       - name: 📦 - Setting up K8s in Docker
         run: |
-          sudo curl -Lo /usr/bin/kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64
           kind create cluster
-          echo "Running Clusters"
+          echo "Running Clusters qrfjpoasjfoasjfasp"
           kind get clusters
   Test:
     needs: [Build]

@@ -28,7 +28,7 @@ jobs:
             bash scripts/build-push.sh
   Deploy:
     runs-on: ubuntu-latest
-    needs: Test
+    needs: Build
     steps:
       - run: |
           REPOSITORY=${{ github.repository_owner }} \

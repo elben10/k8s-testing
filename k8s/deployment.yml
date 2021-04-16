@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
         - name: fastapi
-          image: traefik/whoami:latest
+          image: ghcr/elben10/dummy:latest

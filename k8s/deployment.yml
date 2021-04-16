@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
         - name: fastapi
-          image: tiangolo/uvicorn-gunicorn-fastapi:python3.7
+          image: traefik/whoami:latest

@@ -7,4 +7,4 @@ bash scripts/build.sh
 # Setup k8s cluster
 kind create cluster
 
-kubectl apply -f k8s/deplyment.yml
+kubectl apply -f k8s/deployment.yml

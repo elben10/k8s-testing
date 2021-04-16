@@ -15,6 +15,7 @@ jobs:
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
+      - uses: engineerd/setup-kind@v0.5.0
       - name: Run tests
         run: | 
           REPOSITORY=${{ github.repository_owner }} \

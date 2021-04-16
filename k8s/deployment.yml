@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
         - name: fastapi
-          image: ghcr/elben10/dummy:latest
+          image: ghcr.io/elben10/dummy:latest

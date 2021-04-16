@@ -11,6 +11,4 @@ kubectl apply -f k8s/deployment.yml
 
 sleep 30
 
-kubectl get pods
-
-kubectl exec -it deploy/fastapi-deployment -- curl http://localhost:80
+kubectl describe $(kubectl get pod -l app=fastapi -o jsonpath="{.items[0].metadata.name}")

@@ -17,3 +17,5 @@ spec:
       containers:
         - name: fastapi
           image: ghcr.io/elben10/dummy:latest
+          imagePullPolicy: Never
+    

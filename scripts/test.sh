@@ -9,6 +9,8 @@ kind create cluster
 
 kubectl apply -f k8s/deployment.yml
 
-kubectl wait --for=condition=available --timeout=60s --all deployments
+sleep 30
+
+kubectl get pods
 
 kubectl exec -it deploy/fastapi-deployment -- curl http://localhost:80

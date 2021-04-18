@@ -2,16 +2,30 @@
 
 set -e
 
+# Build test images
 bash scripts/build.sh
 
-kind create cluster
+# Setup kind - k8s in docker
+kind create cluster --config=/config/kind.yml
 
+# Install Ingress-Nginx
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm install ingress-nginx ingress-nginx/ingress-nginx
+
+# Load custom images into cluster
 python scripts/load-images-into-k8s.py
 
-kubectl apply -f k8s/deployment.yml
+# Wait for Ingress Nginx
+kubectl wait \
+ --for=condition=available \
+ --timeout=60s \
+ --namespace ingress-nginx \
+ --all deployments
 
-kubectl wait --for=condition=available --timeout=60s --all deployments
+# kubectl apply -f k8s/deployment.yml
 
-kubectl exec -it deploy/fastapi-deployment -- bash  -c 'curl http://localhost'
+# kubectl wait --for=condition=available --timeout=60s --all deployments
 
-bash scripts/build-push.sh
+# kubectl exec -it deploy/fastapi-deployment -- bash  -c 'curl http://localhost'
+
+# bash scripts/build-push.sh

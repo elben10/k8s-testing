@@ -40,7 +40,7 @@ jobs:
          username: ${{ github.repository_owner }}
          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Set tag
-        run: if [[ ${{ github.ref }} == "/refs/heads/main" ]] ; then echo "production"; else echo "development" ; fi >> TAG
+        run: if [[ ${{ github.ref }} == "/refs/heads/main" ]] ; then echo "production"; else echo "development" ; fi >> $TAG
       - name: Push images
         run: bash scripts/build-push.sh
   Deploy:

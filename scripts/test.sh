@@ -6,7 +6,7 @@ set -e
 bash scripts/build.sh
 
 # Setup kind - k8s in docker
-kind create cluster --config=/config/kind.yml
+kind create cluster --config=config/kind.yml
 
 # Install Ingress-Nginx
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx

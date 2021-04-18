@@ -26,6 +26,7 @@ jobs:
         run: bash scripts/test.sh
   Build:
     if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/production' }}
+    needs: Test
     env:
       REPOSITORY: ghcr.io/${{ github.repository_owner }}/
     runs-on: ubuntu-latest
@@ -44,6 +45,7 @@ jobs:
         run: bash scripts/build-push.sh
   Deploy:
     if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/production' }}
+    needs: Build
     env:
       REPOSITORY: ghcr.io/${{ github.repository_owner }}/
     runs-on: ubuntu-latest

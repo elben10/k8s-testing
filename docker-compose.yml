@@ -4,5 +4,5 @@ services:
     build:
       context: .
       dockerfile: ./images/Dockerfile
-    image: ghcr.io/${GITHUB_REPOSITORY_OWNER?Variable not set}/dummy:latest
+    image: ${REPOSITORY}/dummy:${TAG-latest}
         

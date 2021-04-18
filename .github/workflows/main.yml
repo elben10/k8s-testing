@@ -35,9 +35,10 @@ jobs:
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
-      - run: |
-            REPOSITORY=${{ github.repository_owner }} \
-              bash scripts/build-push.sh
+      - env:
+          TAG: test
+          REPOSITORY: ${{ github.repository_owner }}
+        run: bash scripts/build-push.sh
 
   Deploy:
     runs-on: ubuntu-latest

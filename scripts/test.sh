@@ -15,11 +15,7 @@ bash scripts/build.sh
 # # Load custom images into cluster
 # python scripts/load-images-into-k8s.py
 
-sleep 180
-
-kubectl get service
-
-curl http://localhost
+kubectl describe ingress http-ingress
 
 # kubectl apply -f k8s/deployment.yml
 

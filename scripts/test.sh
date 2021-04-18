@@ -2,6 +2,8 @@
 
 set -e
 
+bash scripts/build.sh
+
 kind load docker-image ghcr.io/elben10/dummy:latest
 
 kubectl apply -f k8s/deployment.yml

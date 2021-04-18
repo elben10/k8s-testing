@@ -4,5 +4,5 @@ services:
     build:
       context: .
       dockerfile: ./images/Dockerfile
-    image: ${REPOSITORY}/dummy:${TAG-latest}
+    image: ${REPOSITORY}dummy:${TAG-latest}
         

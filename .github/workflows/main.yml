@@ -6,7 +6,7 @@ env:
 jobs:
   Test:
     env:
-      REPOSITORY: ghcr.io/elben10/
+      REPOSITORY: ghcr.io/${{ github.repository_owner }}/
       TAG: test
     runs-on: ubuntu-latest
     steps:
@@ -24,3 +24,31 @@ jobs:
          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Create docker images
         run: bash scripts/test.sh
+  Build:
+    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/production' }}
+    env:
+      REPOSITORY: ghcr.io/${{ github.repository_owner }}/
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repository 
+        uses: actions/checkout@v2
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+         registry: ghcr.io
+         username: ${{ github.repository_owner }}
+         password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set tag
+        run: if [[ ${{ github.ref }} == "/refs/heads/main" ]] ; then echo "production"; else "development" ; fi >> TAG
+      - name: Push images
+        run: bash scripts/build-push.sh
+  Deploy:
+    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/production' }}
+    env:
+      REPOSITORY: ghcr.io/${{ github.repository_owner }}/
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repository 
+        uses: actions/checkout@v2
+      - name: Deploy
+        run: bash scripts/deploy.sh

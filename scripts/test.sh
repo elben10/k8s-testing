@@ -2,9 +2,6 @@
 
 set -e
 
-# Build test images
-bash scripts/build.sh
-
 # Setup kind - k8s in docker
 kind create cluster --config=config/kind.yml
 
@@ -12,10 +9,13 @@ kind create cluster --config=config/kind.yml
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm install ingress-nginx ingress-nginx/ingress-nginx
 
+# Build test images
+bash scripts/build.sh
+
 # # Load custom images into cluster
 # python scripts/load-images-into-k8s.py
 
-sleep 15
+sleep 60
 
 kubectl get service
 

@@ -12,15 +12,10 @@ kind create cluster --config=config/kind.yml
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm install ingress-nginx ingress-nginx/ingress-nginx
 
-# Load custom images into cluster
-python scripts/load-images-into-k8s.py
+# # Load custom images into cluster
+# python scripts/load-images-into-k8s.py
 
-# Wait for Ingress Nginx
-kubectl wait \
- --for=condition=available \
- --timeout=60s \
- --namespace ingress-nginx \
- --all deployments
+curl http://localhost
 
 # kubectl apply -f k8s/deployment.yml
 

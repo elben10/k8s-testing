@@ -15,7 +15,7 @@ bash scripts/build.sh
 # # Load custom images into cluster
 # python scripts/load-images-into-k8s.py
 
-sleep 60
+sleep 180
 
 kubectl get service
 

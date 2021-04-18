@@ -4,6 +4,8 @@ set -e
 
 bash scripts/build.sh
 
+kind create cluster
+
 python scripts/load-images-into-k8s.py
 
 kubectl apply -f k8s/deployment.yml

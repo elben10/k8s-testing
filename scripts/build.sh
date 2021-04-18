@@ -8,4 +8,4 @@ docker buildx bake \
     --load \
     --pull
 
-docker image ps
+docker image ls

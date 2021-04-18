@@ -3,6 +3,6 @@ services:
   app:
     build:
       context: .
-      dockerfile: ./Dockerfile
-    image: ghcr.io/${GITHUB_REPOSITORY_OWNER?VARIABLE NOT SET}/dummy:latest
+      dockerfile: ./images/Dockerfile
+    image: ghcr.io/${GITHUB_REPOSITORY_OWNER?Variable not set}/dummy:latest
         

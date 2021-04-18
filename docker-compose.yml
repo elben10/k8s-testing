@@ -2,7 +2,8 @@ version: '3.8'
 services:
   app:
     build:
+      args:
+        environment: ${TAG-test}
       context: .
       dockerfile: ./images/Dockerfile
-    image: ghcr.io/${GITHUB_REPOSITORY_OWNER?Variable not set}/dummy:latest
-        
+    image: ${REPOSITORY}dummy:${TAG-latest}

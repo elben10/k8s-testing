@@ -4,8 +4,14 @@ set -e
 
 bash scripts/build.sh
 
+kind create cluster
+
+python scripts/load-images-into-k8s.py
+
 kubectl apply -f k8s/deployment.yml
 
 kubectl wait --for=condition=available --timeout=60s --all deployments
 
-kubectl describe pod $(kubectl get pod -l app=fastapi -o jsonpath="{.items[0].metadata.name}")
+kubectl exec -it deploy/fastapi-deployment -- bash  -c 'curl http://localhost'
+
+bash scripts/build-push.sh

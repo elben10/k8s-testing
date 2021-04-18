@@ -3,3 +3,5 @@
 set -e
 
 bash scripts/build.sh
+
+docker-compose push

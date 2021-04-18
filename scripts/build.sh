@@ -7,5 +7,3 @@ docker buildx bake \
     --set app.cache-to=type=inline \
     --load \
     --pull
-
-docker image ls

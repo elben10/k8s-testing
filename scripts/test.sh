@@ -14,4 +14,4 @@ kubectl wait --for=condition=available --timeout=60s --all deployments
 
 kubectl exec -it deploy/fastapi-deployment -- bash  -c 'curl http://localhost'
 
-docker-compose push
+bash scripts/build-push.sh

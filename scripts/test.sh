@@ -15,6 +15,8 @@ helm install ingress-nginx ingress-nginx/ingress-nginx
 # # Load custom images into cluster
 # python scripts/load-images-into-k8s.py
 
+sleep 15
+
 kubectl get service
 
 curl http://localhost

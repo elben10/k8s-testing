@@ -4,7 +4,7 @@ set -e
 
 bash scripts/build.sh
 
-docker image ls
+docker pull ghcr.io/elben10/dummy:latest
 
 kind load docker-image ghcr.io/elben10/dummy:latest
 
